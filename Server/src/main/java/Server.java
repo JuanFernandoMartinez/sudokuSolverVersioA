@@ -11,6 +11,8 @@ public class Server {
         try(Communicator communicator = Util.initialize(args,"server.config",extraArgs)){
             if(!extraArgs.isEmpty()){
                 System.out.println("Too many arguments");
+
+                
                 for (String x: extraArgs){
                     System.out.println(x);
                 }

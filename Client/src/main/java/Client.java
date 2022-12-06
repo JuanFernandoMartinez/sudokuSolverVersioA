@@ -1,17 +1,9 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
 import com.zeroc.Ice.*;
-import java.util.Scanner;
-import java.util.Arrays;
-
-
-
 public class Client {
 
-    
     public static void main(String[] args){
         
         List<String> extraArgs = new ArrayList<>();
@@ -27,29 +19,35 @@ public class Client {
                 throw new Error("Invalid proxy");
             }
 
-            FileWriter writer = new FileWriter("output.txt");
+            FileWriter writer = new FileWriter("Output/output.txt");
 
             String[] arr = solver.solve(getInput());
-            for(String str: arr) {
-                writer.write(str + System.lineSeparator());
+            if (arr.length==0){
+                writer.write("El sudoku no tiene solución\n\n");
+            }else{
+                writer.write("El sudoku tiene "+arr.length+" Soluciones\n\n");
+
+                for (int i = 0; i <arr.length ; i++) {
+                    writer.write(i+"\n"+arr[i]+"\n");
+                }
             }
             writer.close();
-
-            //System.out.println(Arrays.toString(solver.solve(getInput())));
-            /* System.out.println(Arrays.toString(solver.solve(sc.nextLine()))); */
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static String getInput(){
-        Scanner sc = new Scanner(System.in);
-        String out = "";
+    private static String getInput() throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder out = new StringBuilder();
         for(int i = 0; i < 9; i++){
-            out += sc.nextLine()+"\n";
+            out.append(br.readLine()).append("\n");
+
         }
-        return out;
+        br.close();
+        return out.toString();
     }
     
 }
