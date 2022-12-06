@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="Server/build/generated-src/|Client/build/generated-src/|Server/src/main/java/|Client/src/main/java/" kind="src" path=""/>
+	<classpathentry kind="src" path="Client/build/generated-src"/>
+	<classpathentry kind="src" path="Client/src/main/java"/>
+	<classpathentry kind="src" path="Server/build/generated-src"/>
+	<classpathentry kind="src" path="Server/src/main/java"/>
+	<classpathentry kind="output" path="Client/build/classes/java/main"/>
+</classpath>

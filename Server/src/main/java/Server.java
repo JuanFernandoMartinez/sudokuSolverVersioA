@@ -12,7 +12,7 @@ public class Server {
             if(!extraArgs.isEmpty()){
                 System.out.println("Too many arguments");
 
-                
+
                 for (String x: extraArgs){
                     System.out.println(x);
                 }
